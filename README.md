@@ -14,10 +14,10 @@
 - ⭐ tailwind
 - ⭐ splide-slice# Netflix-Clone
 
-  # Preview
+  # Preview 📹
   ![Netflix-Clone](https://github.com/user-attachments/assets/da6ef7f2-6417-4a88-a6db-6e3bb6451c77)
 
   # Contact 📧
-  -gunaydinsemra34@gmail.com
-  -semra.gunaydinwork@outlook.com
+  - gunaydinsemra34@gmail.com
+  - semra.gunaydinwork@outlook.com
 
