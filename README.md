@@ -3,7 +3,7 @@
 - The project includes movies by genre, movie details, content, average rating, producer and budget data.
 - There is the ability to add and remove favorite movies to the watch list.
 
-# Using tools and library
+# 🛠️ Technologies Used
 - ⭐ axios
 - ⭐ millify
 - ⭐ react-router-dom
