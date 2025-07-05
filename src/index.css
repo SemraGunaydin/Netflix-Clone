@@ -7,229 +7,82 @@ body {
 }
 
 /* Loader Css */
-.loader {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+
+#container {
+  width: 100px;
+  height: 125px;
+  margin: auto auto;
 }
 
-.pl {
- width: 5em;
- height: 5em;
+.loading-title {
+  display: block;
+  text-align: center;
+  font-size: 20;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  padding-bottom: 15px;
+  color: #888;
 }
 
-.pl circle {
- transform-box: fill-box;
- transform-origin: 50% 50%;
+.loading-circle {
+  display: block;
+  border-left: 5px solid;
+  border-top-left-radius: 100%;
+  border-top: 5px solid;
+  margin: 5px;
+  animation-name: Loader_611;
+  animation-duration: 1500ms;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
 }
 
-.pl__ring1 {
- animation: ring1 4s 0s ease-in-out infinite;
+.sp1 {
+  border-left-color: #F44336;
+  border-top-color: #F44336;
+  width: 40px;
+  height: 40px;
 }
 
-.pl__ring2 {
- animation: ring2 4s 0.04s ease-in-out infinite;
+.sp2 {
+  border-left-color: #FFC107;
+  border-top-color: #FFC107;
+  width: 30px;
+  height: 30px;
 }
 
-.pl__ring3 {
- animation: ring3 4s 0.08s ease-in-out infinite;
+.sp3 {
+  width: 20px;
+  height: 20px;
+  border-left-color: #8bc34a;
+  border-top-color: #8bc34a;
 }
 
-.pl__ring4 {
- animation: ring4 4s 0.12s ease-in-out infinite;
-}
+@keyframes Loader_611 {
+  0% {
+    transform: rotate(0deg);
+    transform-origin: right bottom;
+  }
 
-.pl__ring5 {
- animation: ring5 4s 0.16s ease-in-out infinite;
-}
+  25% {
+    transform: rotate(90deg);
+    transform-origin: right bottom;
+  }
 
-.pl__ring6 {
- animation: ring6 4s 0.2s ease-in-out infinite;
-}
+  50% {
+    transform: rotate(180deg);
+    transform-origin: right bottom;
+  }
 
-/* Animations */
-@keyframes ring1 {
- from {
-  stroke-dashoffset: -376.237129776;
-  transform: rotate(-0.25turn);
-  animation-timing-function: ease-in;
- }
+  75% {
+    transform: rotate(270deg);
+    transform-origin: right bottom;
+  }
 
- 23% {
-  stroke-dashoffset: -94.247778;
-  transform: rotate(1turn);
-  animation-timing-function: ease-out;
- }
-
- 46%, 50% {
-  stroke-dashoffset: -376.237129776;
-  transform: rotate(2.25turn);
-  animation-timing-function: ease-in;
- }
-
- 73% {
-  stroke-dashoffset: -94.247778;
-  transform: rotate(3.5turn);
-  animation-timing-function: ease-out;
- }
-
- 96%, to {
-  stroke-dashoffset: -376.237129776;
-  transform: rotate(4.75turn);
- }
-}
-
-@keyframes ring2 {
- from {
-  stroke-dashoffset: -329.207488554;
-  transform: rotate(-0.25turn);
-  animation-timing-function: ease-in;
- }
-
- 23% {
-  stroke-dashoffset: -82.46680575;
-  transform: rotate(1turn);
-  animation-timing-function: ease-out;
- }
-
- 46%, 50% {
-  stroke-dashoffset: -329.207488554;
-  transform: rotate(2.25turn);
-  animation-timing-function: ease-in;
- }
-
- 73% {
-  stroke-dashoffset: -82.46680575;
-  transform: rotate(3.5turn);
-  animation-timing-function: ease-out;
- }
-
- 96%, to {
-  stroke-dashoffset: -329.207488554;
-  transform: rotate(4.75turn);
- }
-}
-
-@keyframes ring3 {
- from {
-  stroke-dashoffset: -288.4484661616;
-  transform: rotate(-0.25turn);
-  animation-timing-function: ease-in;
- }
-
- 23% {
-  stroke-dashoffset: -72.2566298;
-  transform: rotate(1turn);
-  animation-timing-function: ease-out;
- }
-
- 46%, 50% {
-  stroke-dashoffset: -288.4484661616;
-  transform: rotate(2.25turn);
-  animation-timing-function: ease-in;
- }
-
- 73% {
-  stroke-dashoffset: -72.2566298;
-  transform: rotate(3.5turn);
-  animation-timing-function: ease-out;
- }
-
- 96%, to {
-  stroke-dashoffset: -288.4484661616;
-  transform: rotate(4.75turn);
- }
-}
-
-@keyframes ring4 {
- from {
-  stroke-dashoffset: -253.9600625988;
-  transform: rotate(-0.25turn);
-  animation-timing-function: ease-in;
- }
-
- 23% {
-  stroke-dashoffset: -63.61725015;
-  transform: rotate(1turn);
-  animation-timing-function: ease-out;
- }
-
- 46%, 50% {
-  stroke-dashoffset: -253.9600625988;
-  transform: rotate(2.25turn);
-  animation-timing-function: ease-in;
- }
-
- 73% {
-  stroke-dashoffset: -63.61725015;
-  transform: rotate(3.5turn);
-  animation-timing-function: ease-out;
- }
-
- 96%, to {
-  stroke-dashoffset: -253.9600625988;
-  transform: rotate(4.75turn);
- }
-}
-
-@keyframes ring5 {
- from {
-  stroke-dashoffset: -225.7422778656;
-  transform: rotate(-0.25turn);
-  animation-timing-function: ease-in;
- }
-
- 23% {
-  stroke-dashoffset: -56.5486668;
-  transform: rotate(1turn);
-  animation-timing-function: ease-out;
- }
-
- 46%, 50% {
-  stroke-dashoffset: -225.7422778656;
-  transform: rotate(2.25turn);
-  animation-timing-function: ease-in;
- }
-
- 73% {
-  stroke-dashoffset: -56.5486668;
-  transform: rotate(3.5turn);
-  animation-timing-function: ease-out;
- }
-
- 96%, to {
-  stroke-dashoffset: -225.7422778656;
-  transform: rotate(4.75turn);
- }
-}
-
-@keyframes ring6 {
- from {
-  stroke-dashoffset: -203.795111962;
-  transform: rotate(-0.25turn);
-  animation-timing-function: ease-in;
- }
-
- 23% {
-  stroke-dashoffset: -51.05087975;
-  transform: rotate(1turn);
-  animation-timing-function: ease-out;
- }
-
- 46%, 50% {
-  stroke-dashoffset: -203.795111962;
-  transform: rotate(2.25turn);
-  animation-timing-function: ease-in;
- }
-
- 73% {
-  stroke-dashoffset: -51.05087975;
-  transform: rotate(3.5turn);
-  animation-timing-function: ease-out;
- }
-
- 96%, to {
-  stroke-dashoffset: -203.795111962;
-  transform: rotate(4.75turn);
- }
+  100% {
+    transform: rotate(360deg);
+    transform-origin: right bottom;
+  }
 }

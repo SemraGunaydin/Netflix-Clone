@@ -1,73 +1,73 @@
 import { useEffect, useState } from "react";
-import { RiArrowLeftSLine } from "react-icons/ri"
-import { Link, useParams } from "react-router-dom"
+import { RiArrowLeftSLine } from "react-icons/ri";
+import { Link, useParams } from "react-router-dom";
 import api from "../../utils";
 import Banner from "./Banner";
-import Loader from "../../componenets/Loader";
-
-
+import Loader from "../../components/Loader";
+import Content from "./Content";
+import ActorList from "./ActorList";
+import VideoList from "./VideoList";
+import AddButton from "../../components/AddButton";
+import Error from "../../components/Error";
 
 const Detail = () => {
-  //Url' deki parametreye eris
-  const {id} = useParams();
+  // URL'deki parametreyi al
+  const { id } = useParams();
 
-  // State olustur
+  // State'ler
   const [error, setError] = useState(null);
   const [movie, setMovie] = useState(null);
 
-
   useEffect(() => {
-    const params ={
+    const params = {
       append_to_response: "videos,credits",
-      language:"en",
-    }
-    api.get(`/movie/${id}`,params)
-    .then((res) => {
-      setMovie(res.data);
-    })
-    .catch((err) => setError(err.message));
-  }, []);
+      language: "en",
+    };
 
-  console.log(movie);
+    api
+      .get(`/movie/${id}`, { params }) // 🔑 DİKKAT: Axios parametreleri böyle verilir!
+      .then((res) => {
+        setMovie(res.data);
+      })
+      .catch((err) => setError(err.message));
+  }, [id]); // 🔑 DİKKAT: id bağımlılığı olmalı!
 
   return (
-<>
-{error ?( <Error/> ): !movie ? ( <Loader />
-): (
-<div>
-      {/* Top */}
-      <div className="flex justify-between mb-5">
-        <Link to={".."}
-        className="flex gap-2 items-center py-2 px-4 bg-gray-600 rounded hover:bg-gray-500 transition">
-        <RiArrowLeftSLine className="text-xl"/>
-        <span>Back</span>
-        </Link>
-        <button>Add to List</button>
-      </div>
+    <>
+      {error ? (
+        <Error info={error} />
+      ) : !movie ? (
+        <Loader />
+      ) : (
+        <div>
+          {/* Üst kısım */}
+          <div className="flex justify-between mb-5">
+            <Link
+              to={-1} // 🔑 DİKKAT: navigate(-1) mantığında çalışır
+              className="flex gap-2 items-center py-2 px-4 bg-gray-600 rounded hover:bg-gray-500 transition"
+            >
+              <RiArrowLeftSLine className="text-xl" />
+              <span>Geri</span>
+            </Link>
 
-      {/* Banner */}
-     <Banner movie={movie}/>
+            <AddButton movie={movie} />
+          </div>
 
-      {/* Content */}
+          {/* Banner */}
+          <Banner movie={movie} />
 
-      {/* Actor List */}
+          {/* İçerik */}
+          <Content movie={movie} />
 
-      {/* Video List */}
-    </div>
-     )}
+          {/* Oyuncular */}
+          <ActorList id={id} />
 
+          {/* Fragmanlar */}
+          <VideoList id={id} />
+        </div>
+      )}
+    </>
+  );
+};
 
-
-</>
-
-
-
-
-
-
-
-    
-  )
-}
-
-export default Detail
+export default Detail;

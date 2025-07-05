@@ -10,7 +10,7 @@ const Banner = ({ movie }) => {
         alt=""
       />
 
-      <div className="absolute inset-0 grid place-items-center bg-black py-3 opacity-40">
+      <div className="absolute inset-0 grid place-items-center bg-black py-3 opacity-30">
         <h2 className="text-3xl md:text-4xl font-mono font-semibold text-center">
           {movie.title}
         </h2>

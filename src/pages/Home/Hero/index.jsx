@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import api from "../../../utils";
 import { Link } from 'react-router-dom';
 import imageUrl from '../../../constants';
+import AddButton from '../../../components/AddButton';
 
 const Hero = () => {
     const [movie, setMovie] = useState(null);
     const [error, setError] = useState(null);
+    
     useEffect(() => {
         api.get("/movie/popular?language=en-US")
         .then((res) => {
@@ -21,8 +23,6 @@ const Hero = () => {
 
     },[])
 
-    console.log(movie);
-
   return (
     <div>
     { error ? (
@@ -36,14 +36,15 @@ const Hero = () => {
                 <h1 className="text-3xl font-bold">{movie.title}</h1>
                 <p className="text-start text-gray-300">{movie.overview}</p>
                 <p>
-                    <span>IMDB</span>
+                    <span>IMDB:</span>
                     <span className="text-yellow-400 ms-2 font-semibold">{movie.vote_average.toFixed(2)}</span>
                 </p>
 
 
                 <div className="flex gap-5">
-                    <Link className="p-2 px-4 bg-red-500 rounded-md transition hover:bg-red-700"    to={`/movie/${movie.id}`}>Watch Movie</Link>
-                    <button>Add to List</button>
+                    <Link className="p-2 px-4 bg-red-500 rounded-md transition hover:bg-red-700" to={`/movie/${movie.id}`}>Watch Movie</Link>
+
+                    <AddButton movie={movie}/>
                    
                 </div>
             </div>
@@ -54,7 +55,7 @@ const Hero = () => {
                 <img 
                 className="my-4  object-cover rounded max-h-[300px] min-w-[500px] max-md:w-full object-contain drop-shadow-[0_0_80px_rgba(255,255,255,0.4)]"
                 src={imageUrl + movie.poster_path} 
-                alt="" />
+                alt="her0-image" />
             </div>
         </div>
     )}
